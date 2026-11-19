@@ -1,3 +1,5 @@
+const Category = require("../model/category.model");
+
 const getAllCategory = async (req, res) => {
     const categories = await Category.find()
 
@@ -31,7 +33,7 @@ const updateCategory = async (req, res) => {
     await Category.findByIdAndUpdate(id, {title})
 
     
-        return res.status(404).json({
+        return res.status(200).json({
             message: "Category o'zgartirildi"
         })
 }
@@ -50,7 +52,7 @@ const deleteCategory = async (req, res) => {
     await Category.findByIdAndDelete(id)
 
     
-        return res.status(404).json({
+        return res.status(200).json({
             message: "Category o'chirildi"
         })
     
